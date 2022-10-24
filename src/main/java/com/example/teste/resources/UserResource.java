@@ -19,7 +19,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.example.teste.entites.User;
 import com.example.teste.services.UserService;
 
-@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping(value = "/users")
 public class UserResource {
@@ -34,6 +33,7 @@ public class UserResource {
 		return ResponseEntity.ok().body(list);
 	}
 
+	@CrossOrigin(origins = "http://localhost:8080")
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<User> findById(@PathVariable Long id) {
 		User obj = service.findById(id);
